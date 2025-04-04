@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Request a Municipal Service";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary">Request a Municipal Service</h1>
+    <p class="text-center">Submit a service request for municipal assistance.</p>
+
+    <div class="row mt-4">
+        <!-- Service Request Form -->
+        <div class="col-md-8 offset-md-2">
+            <div class="card report-card shadow p-4">
+                <h3 class="text-center">Fill in the details below</h3>
+
+                <form asp-controller="ServiceRequest" asp-action="Create" method="post" class="report-form">
+                    <div class="mb-3">
+                        <label for="citizenId" class="form-label">Citizen ID (if registered)</label>
+                        <input type="text" class="form-control form-input" id="citizenId" name="CitizenID" placeholder="Enter your Citizen ID (Optional)">
+                    </div>
+
+                    <p class="text-center text-muted">OR</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="idNumber" class="form-label">ID Number</label>
+                            <input type="text" class="form-control form-input" id="idNumber" name="IDNumber" placeholder="Enter your ID number">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control form-input" id="phoneNumber" name="PhoneNumber" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="serviceType" class="form-label">Select Service Type</label>
+                        <select class="form-select form-input" id="serviceType" name="ServiceType" required>
+                            <option value="" selected disabled>Choose a service...</option>
+                            <option value="Water Issue">🚰 Water Issue</option>
+                            <option value="Electricity Problem">⚡ Electricity Problem</option>
+                            <option value="Road Maintenance">🛣️ Road Maintenance</option>
+                            <option value="Waste Collection">🗑️ Waste Collection</option>
+                            <option value="Other">📌 Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Describe the Issue</label>
+                        <textarea class="form-control form-input" id="description" name="Description" rows="4" placeholder="Provide more details about your request..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn w-100">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5 text-center main-footer">
+        <p>&copy; @DateTime.Now.Year Mogale City Municipality | Citizen Service Requests</p>
+    </footer>
+</div>

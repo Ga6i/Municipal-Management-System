@@ -1,0 +1,64 @@
+﻿@model Municipal_Management_System.Models.Report
+
+@{
+    ViewData["Title"] = "Review Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Review Report</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <!-- Report Details -->
+            <h4 class="card-title">@Model.ReportType</h4>
+
+            @if (Model.Citizen != null)
+            {
+                <p><strong>Submitted By:</strong> @Model.Citizen.FullName</p>
+            }
+            else
+            {
+                <p><strong>Submitted By:</strong> N/A (Citizen information missing)</p>
+            }
+
+            <p><strong>Details:</strong> @Model.Details</p>
+            <p><strong>Date Submitted:</strong> @Model.SubmissionDate.ToString("yyyy-MM-dd")</p>
+            <p>
+                <strong>Status:</strong>
+                <span class="badge @(Model.Status == "Under Review" ? "bg-warning" : Model.Status == "Resolved" ? "bg-success" : "bg-danger")">
+                    @Model.Status
+                </span>
+            </p>
+
+            <!-- Form to Update Status -->
+            <form asp-action="ReviewReport" method="post" class="mt-4">
+                <input type="hidden" name="ReportID" value="@Model.ReportID" />
+
+                <div class="form-group">
+                    <label for="Status">Update Status</label>
+                    <select class="form-control" id="Status" name="Status" required>
+                        <option value="Under Review" class="@(Model.Status == "Under Review" ? "selected" : "")">Under Review</option>
+                        <option value="Resolved" class="@(Model.Status == "Resolved" ? "selected" : "")">Resolved</option>
+                        <option value="Rejected" class="@(Model.Status == "Rejected" ? "selected" : "")">Rejected</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-3">Update Status</button>
+            </form>
+
+            <!-- Back to Reports List Button -->
+            <div class="text-end mt-3">
+                <a href="/Reports" class="btn btn-secondary">Back to Reports</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

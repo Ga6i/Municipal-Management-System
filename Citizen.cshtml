@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Citizen Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Citizen Management</h1>
+    <p class="lead text-center">View, create, edit, or delete citizen records from this dashboard.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3>👥 All Citizens</h3>
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample static data row -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>+27 82 123 4567</td>
+                        <td>
+                            <a href="/Citizen/Details/1" class="btn btn-info btn-sm">Details</a>
+                            <a href="/Citizen/Edit/1" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/Citizen/Delete/1" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    <!-- Repeat for each citizen -->
+                </tbody>
+            </table>
+            <a href="/Citizen/Create" class="btn btn-success">➕ Add New Citizen</a>
+        </div>
+    </div>
+</div>

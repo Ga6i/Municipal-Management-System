@@ -1,0 +1,42 @@
+﻿@model Municipal_Management_System.Models.Report
+
+@{
+    ViewData["Title"] = "Submit a New Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center mb-4">📋 Submit a New Report</h1>
+    <p class="lead text-center mb-5">Please fill out the form to submit a report to the municipality.</p>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="ReportType">Report Type</label>
+            <select class="form-control" id="ReportType" name="ReportType" required>
+                <option value="">Select Report Type</option>
+                <option value="Water Leak">Water Leak</option>
+                <option value="Power Outage">Power Outage</option>
+                <option value="Road Damage">Road Damage</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="Details">Description</label>
+            <textarea class="form-control" id="Details" name="Details" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="CitizenID">Citizen</label>
+            <input type="text" class="form-control" id="CitizenID" name="CitizenID" placeholder="Enter your citizen ID" required />
+        </div>
+
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Submit Report</button>
+        </div>
+    </form>
+</div>

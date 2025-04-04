@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Contact Mogale City Municipality";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-center">Contact Mogale City Municipality</h1>
+    <p class="lead text-center">We’re here to assist you. Reach out to us for any municipal inquiries or support.</p>
+
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Mogale_City_CoA.png/220px-Mogale_City_CoA.png"
+         alt="Mogale City Logo" class="d-block mx-auto my-4" width="150" />
+
+    <section class="mt-4 text-center">
+        <h2>📍 Office Address</h2>
+        <p>Civic Centre, Krugersdorp, Mogale City, South Africa</p>
+
+        <h2>📞 Call Us</h2>
+        <p>General Inquiries: +27 11 950 1000</p>
+        <p>Emergency Services: +27 80 011 8808</p>
+
+        <h2>📧 Email Us</h2>
+        <p>General Information: <a href="mailto:info@mogalecity.gov.za">info@mogalecity.gov.za</a></p>
+        <p>Service Requests: <a href="mailto:services@mogalecity.gov.za">services@mogalecity.gov.za</a></p>
+    </section>
+
+    <section class="mt-4">
+        <h2>📨 Contact Form</h2>
+        <form method="post" action="/Home/Contact">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="mt-5 text-center">
+        <p>&copy; @DateTime.Now.Year Mogale City Municipality | All Rights Reserved</p>
+    </footer>
+</div>
